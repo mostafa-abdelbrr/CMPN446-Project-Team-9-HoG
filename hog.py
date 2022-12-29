@@ -46,10 +46,10 @@ def hog(img):
                     cj = step * (hist_vector_index + 0.5)  # Current bin's center
                     # How much current angle deviates from next bin's center.
                     distance_from_angle_percentage = (cj1 - angle) / step
-                    hist[hist_row, hist_col, hist_vector_index] = distance_from_angle_percentage * magnitude
+                    hist[hist_row, hist_col, hist_vector_index] += distance_from_angle_percentage * magnitude
                     # How much current angle deviates from the current bin's center.
                     distance_from_angle_percentage = (angle - cj) / step
-                    hist[hist_row, hist_col, (hist_vector_index + 1) % 9] = distance_from_angle_percentage * magnitude
+                    hist[hist_row, hist_col, (hist_vector_index + 1) % 9] += distance_from_angle_percentage * magnitude
             hist_col += 1
         hist_row += 1
 
